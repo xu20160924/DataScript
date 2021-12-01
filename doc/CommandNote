@@ -1,0 +1,40 @@
+```
+ find ./directory -maxdepth 1 -type f -daystart -ctime 0 | xargs grep --color 'content'
+```
+```
+#get pat of process by pid
+readlink -f /proc/<pid>/exe
+```
+
+```
+# get full path of a file
+readlink -f file.txt
+```
+
+
+
+```
+# awk group and count
+awk -F ' ' '{arr[int(substr($8, 6))]++}END{for (a in arr ) print a, arr[a]}'  file
+
+```
+
+
+
+Print all columns:
+
+awk '{print $0}' somefile
+Print all but the first column:
+
+awk '{$1=""; print $0}' somefile
+Print all but the first two columns:
+
+awk '{$1=$2=""; print $0}' somefile
+
+
+
+```
+# find all line of file2 not exist in file1
+
+awk 'FNR==NR {a[$0]++; next} !($0 in a)' file1 file2
+```
